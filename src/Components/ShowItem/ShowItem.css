@@ -1,0 +1,25 @@
+.small-card {
+  display: flex;
+  text-align: left;
+  border: 1px solid lightgrey;
+  margin: 5px;
+  background-color: rgb(245, 255, 245);
+}
+
+.small-card img {
+  height: 82px;
+  width: 100px;
+}
+
+.info h3,
+p {
+  margin: 0;
+}
+
+.info {
+  padding: 0 5px;
+}
+
+#your-info {
+  flex-grow: 1;
+}

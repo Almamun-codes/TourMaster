@@ -1,0 +1,23 @@
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.wish-container {
+  display: flex;
+  margin-left: 20px;
+}
+
+#your-info {
+  width: 200px;
+  border: 2px solid rgb(58, 146, 58);
+  margin: 0 50px;
+}
+
+.parent-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
