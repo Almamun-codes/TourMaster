@@ -24,12 +24,21 @@ const MainSection = () => {
     });
   };
 
+  const handleDeletebtn = (item) => {
+    const name = item.name;
+    const newItem = selectedItems.filter((item) => item.name !== name);
+    setSelectedItems(newItem);
+  };
+
   return (
     // add div for all the contents
     <div className="main-section">
       {/* add a div to add the selected posts */}
       <div className="selected-spots">
-        <SelectedSpots selectedItems={selectedItems}></SelectedSpots>
+        <SelectedSpots
+          deletebtn={handleDeletebtn}
+          selectedItems={selectedItems}
+        ></SelectedSpots>
       </div>
 
       <h1>Tourist Attractions of Bangladesh</h1>

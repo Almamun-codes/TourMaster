@@ -11,10 +11,10 @@
   margin-left: 20px;
 }
 
-#your-info {
-  width: 200px;
+.your-info {
   border: 2px solid rgb(58, 146, 58);
   margin: 0 50px;
+  padding: 0 10px;
 }
 
 .parent-card {

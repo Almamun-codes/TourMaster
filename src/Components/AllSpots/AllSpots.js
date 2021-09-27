@@ -40,7 +40,7 @@ const AllSpots = (props) => {
         </div>
       </div>
       <button onClick={() => props.btn(name)}>
-        <i class="fas fa-heart"></i> Add to Wish list
+        <i className="fas fa-heart"></i> Add to Wish list
       </button>
     </div>
   );
