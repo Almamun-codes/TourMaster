@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react/cjs/react.development";
 import ShowItem from "../ShowItem/ShowItem";
 import "./SelectedSpots.css";
 
