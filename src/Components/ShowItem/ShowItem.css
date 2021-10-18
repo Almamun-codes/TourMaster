@@ -1,7 +1,6 @@
 .small-card {
   display: flex;
   flex-grow: 1;
-
   text-align: left;
   border: 1px solid lightgrey;
   margin: 5px;
@@ -14,15 +13,10 @@
 }
 
 .small-card button {
-  margin-top: 16px;
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
   border: none;
   color: rgb(255, 0, 0);
-}
-
-.btn {
-  text-align: right;
 }
 
 .info h3,
@@ -30,12 +24,16 @@ p {
   margin: 0;
 }
 
-.info {
-  padding: 0 5px;
-  width: 195px;
-  height: 82px;
+.left-img {
+  height: 110px;
 }
 
-#your-info {
-  flex-grow: 1;
+.selected-card {
+  background-color: rgb(228, 255, 228);
+}
+
+.bg-danger {
+  color: white;
+  border: none;
+  background-color: red;
 }

@@ -1,26 +1,14 @@
 nav {
-  display: flex;
   padding: 10px;
-  padding-left: 20px;
+  padding-left: 30px;
   background-color: rgb(38, 138, 38);
 }
 
 nav input {
   border-radius: 5px;
-  width: 50%;
+  width: 40%;
   border: none;
   background-color: rgb(203, 231, 203);
-}
-
-ul {
-  display: flex;
-  padding: 0 25px;
-  list-style: none;
-  color: white;
-}
-
-ul li {
-  margin: 0 10px;
 }
 
 nav h1 {
@@ -31,4 +19,8 @@ nav h1 {
 nav img {
   height: 50px;
   margin-right: 10px;
+}
+
+.heart {
+  color: rgb(255, 51, 51);
 }

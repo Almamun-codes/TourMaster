@@ -7,12 +7,6 @@ const MainSection = () => {
   const [items, setItem] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
 
-  useEffect(() => {
-    fetch("./places.JSON")
-      .then((res) => res.json())
-      .then((data) => setItem(data));
-  }, []);
-
   const handleWishbtn = (name) => {
     items.forEach((item) => {
       if (item.name === name) {

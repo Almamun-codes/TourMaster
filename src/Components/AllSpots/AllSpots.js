@@ -14,34 +14,45 @@ const AllSpots = (props) => {
     day,
   } = props.spot;
 
+  const showHide = props.class;
+
+  const handleWishbtn = props.btn;
+
   return (
-    <div className="card">
-      <div>
-        <img className="spot-photo" src={img} alt="thumbnail" />
-      </div>
-      <div className="spot-info">
-        <h2>{name}</h2>
-        <h5> {location}</h5>
-        <div className="more-info">
-          <p>
-            Tourist Attractions:
-            <br></br>
-            {Attraction}
-          </p>
-          <p>Best time to go: {season}</p>
-          <p>
-            It'll take {day} days to explore {name}
-          </p>
-          <h4>Esimated Cost: {cost}</h4>
-          <p>
-            The communication process is {communication} and you can stay there
-            in a {stay} place.
-          </p>
+    <div className="col-lg-3 col-md-6 my-2">
+      <div className="card h-100 pb-5 mb- position-relative">
+        <div>
+          <img className="card-img-top" src={img} alt="thumbnail" />
         </div>
+        <div className="spot-info">
+          <h2 className="text-center">{name}</h2>
+          <h5 className="text-center"> {location}</h5>
+          <div className="more-info">
+            <p>
+              <strong>Tourist Attractions:</strong>
+              <br></br>
+              {Attraction}
+            </p>
+            <p className={showHide}>Best time to go: {season}</p>
+            <p className={showHide}>
+              It'll take {day} days to explore {name}
+            </p>
+            <h4 className={showHide}>Estimated Cost: {cost}</h4>
+            <p className={showHide}>
+              The communication process is {communication} and you can stay
+              there in a {stay} place.
+            </p>
+          </div>
+        </div>
+
+        <button
+          className="position-absolute btn btn-success mb-2 bottom-0 start-50 translate-middle-x"
+          onClick={() => handleWishbtn(name)}
+        >
+          <i className="fas fa-heart"></i>{" "}
+          <span className="text-sm-fs-6">Add to Wish list</span>
+        </button>
       </div>
-      <button onClick={() => props.btn(name)}>
-        <i className="fas fa-heart"></i> Add to Wish list
-      </button>
     </div>
   );
 };
