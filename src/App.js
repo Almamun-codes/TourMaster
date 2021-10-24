@@ -9,8 +9,48 @@ import NotFound from "./Components/NotFound/NotFound";
 import SelectedSpots from "./Components/SelectedSpots/SelectedSpots";
 import SignIn from "./Components/SignIn/SignIn";
 import SignUp from "./Components/SignUp/SignUp";
+import initializeAuthentication from "./Firebase/Firebase.init";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+} from "firebase/auth";
+import { useState } from "react";
+
+initializeAuthentication();
+
+const googleProvider = new GoogleAuthProvider();
+const gitHubProvider = new GithubAuthProvider();
 
 function App() {
+  const [user, setUser] = useState({});
+
+  const handleGitHubSignIn = () => {
+    const auth = getAuth();
+    signInWithPopup(auth, gitHubProvider).then((result) => {
+      console.log(result.user);
+      const { displayName, photoURL } = result.user;
+      const loggedInUser = {
+        name: displayName,
+        img: photoURL,
+      };
+      setUser(loggedInUser);
+    });
+  };
+
+  const handleGoogleSignIn = () => {
+    const auth = getAuth();
+    signInWithPopup(auth, googleProvider).then((result) => {
+      const { displayName, photoURL } = result.user;
+      const loggedInUser = {
+        name: displayName,
+        img: photoURL,
+      };
+      setUser(loggedInUser);
+    });
+  };
+
   return (
     <div className="app">
       <BrowserRouter>
@@ -37,7 +77,11 @@ function App() {
           </Route>
 
           <Route path="/sign-in">
-            <SignIn></SignIn>
+            <SignIn
+              signInbtn={handleGoogleSignIn}
+              githubsignin={handleGitHubSignIn}
+              user={user}
+            ></SignIn>
           </Route>
 
           <Route path="/sign-up">

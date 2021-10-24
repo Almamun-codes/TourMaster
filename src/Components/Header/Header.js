@@ -9,7 +9,6 @@ const Header = () => {
 
   const setbadges = () => {
     const storedItems = getFromDb();
-    console.log(storedItems);
     let totalItems = 0;
     for (const item in storedItems) {
       totalItems++;
@@ -59,9 +58,9 @@ const Header = () => {
                   to="/favourites"
                 >
                   Favourites
-                  <span class="position-absolute top-75 start-75 translate-middle badge rounded-pill bg-danger">
+                  <span className="position-absolute top-75 start-75 translate-middle badge rounded-pill bg-danger">
                     {items}
-                    <span class="visually-hidden">unread messages</span>
+                    <span className="visually-hidden">unread messages</span>
                   </span>
                 </NavLink>
               </li>
