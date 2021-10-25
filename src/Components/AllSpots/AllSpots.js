@@ -1,17 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./AllSpots.css";
 
 const AllSpots = (props) => {
   const {
+    _id,
     name,
     img,
-    season,
-    Attraction,
     location,
+    attraction,
+    time,
     cost,
-    communication,
+    besttime,
+    road,
     stay,
-    day,
   } = props.spot;
 
   const showHide = props.class;
@@ -31,27 +33,33 @@ const AllSpots = (props) => {
             <p>
               <strong>Tourist Attractions:</strong>
               <br></br>
-              {Attraction}
+              {attraction}
             </p>
-            <p className={showHide}>Best time to go: {season}</p>
+            <p className={showHide}>Best time to go: {besttime}</p>
             <p className={showHide}>
-              It'll take {day} days to explore {name}
+              It'll take {time} days to explore {name}
             </p>
             <h4 className={showHide}>Estimated Cost: {cost}</h4>
             <p className={showHide}>
-              The communication process is {communication} and you can stay
-              there in a {stay} place.
+              The communication process is {road} and you can stay there in a{" "}
+              {stay} place.
             </p>
           </div>
         </div>
 
         <button
-          className="position-absolute btn btn-success mb-2 bottom-0 start-50 translate-middle-x"
+          className="position-absolute btn btn-success mb-2 bottom-0 start-0 ms-2"
           onClick={() => handleWishbtn(name)}
         >
           <i className="fas fa-heart"></i>{" "}
           <span className="text-sm-fs-6">Add to Wish list</span>
         </button>
+        <Link to={`/places/${_id}`}>
+          <button className="position-absolute btn btn-success mb-2 bottom-0 end-0 me-2">
+            <i className="fas fa-info-circle"></i>{" "}
+            <span className="text-sm-fs-6">Details</span>
+          </button>
+        </Link>
       </div>
     </div>
   );

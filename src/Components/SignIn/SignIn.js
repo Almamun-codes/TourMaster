@@ -1,42 +1,49 @@
-import React, { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import initializeAuthentication from "../../Firebase/Firebase.init";
-import { Link } from "react-router-dom";
+import React from "react";
 
-initializeAuthentication();
+import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+
+// initializeAuthentication();
 
 const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const {
+    handleEmailChange,
+    handlePasswordChange,
+    handlePasswordSignIn,
+    error,
+  } = useAuth();
+  //   const [email, setEmail] = useState("");
+  //   const [password, setPassword] = useState("");
+  //   const [error, setError] = useState("");
 
-  const auth = getAuth();
+  //   const auth = getAuth();
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  //   const handleEmailChange = (e) => {
+  //     setEmail(e.target.value);
+  //   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  //   const handlePasswordChange = (e) => {
+  //     setPassword(e.target.value);
+  //   };
 
   const handleLogIn = (e) => {
     e.preventDefault();
-    if (password.length < 6) {
-      setError("Password must be at least 6 character long.");
-      return;
-    }
-    signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        // Signed in
-        const user = result.user;
-        console.log(user);
-        // ...
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        setError(errorMessage);
-      });
+    handlePasswordSignIn();
+    // if (password.length < 6) {
+    //   setError("Password must be at least 6 character long.");
+    //   return;
+    // }
+    // signInWithEmailAndPassword(auth, email, password)
+    //   .then((result) => {
+    //     // Signed in
+    //     const user = result.user;
+    //     console.log(user);
+    //     // ...
+    //   })
+    //   .catch((error) => {
+    //     const errorMessage = error.message;
+    //     setError(errorMessage);
+    //   });
   };
 
   return (
@@ -75,7 +82,7 @@ const SignIn = () => {
         </Link>
         <br />
         <button type="submit" className="btn btn-success mt-3">
-          SignUp
+          SignIn
         </button>
       </form>
     </div>

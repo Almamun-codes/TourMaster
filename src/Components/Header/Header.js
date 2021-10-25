@@ -3,14 +3,19 @@ import { NavLink } from "react-router-dom";
 import logo from "../../logo.png";
 import { getFromDb } from "../LocalStorage/LocalStorage";
 import "./Header.css";
+import useAuth from "../../Hooks/useAuth";
 
 const Header = () => {
   const [items, setItems] = useState(0);
 
+  const { user } = useAuth();
+  console.log(user);
+
   const setbadges = () => {
     const storedItems = getFromDb();
+
     let totalItems = 0;
-    for (const item in storedItems) {
+    for (const i in storedItems) {
       totalItems++;
     }
     return totalItems;
@@ -95,6 +100,7 @@ const Header = () => {
                   Sign Up
                 </NavLink>
               </li>
+              <li>{user.displayName}</li>
             </ul>
           </div>
         </div>

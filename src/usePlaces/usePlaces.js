@@ -5,7 +5,7 @@ const usePlaces = () => {
 
   //add useeffect to load data
   useEffect(() => {
-    fetch("./places.JSON")
+    fetch("http://localhost:4000/places")
       .then((res) => res.json())
       .then((data) => setPlaces(data));
   }, []);

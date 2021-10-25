@@ -1,58 +1,68 @@
 import React, { useState } from "react";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-  updateProfile,
-} from "firebase/auth";
-import initializeAuthentication from "../../Firebase/Firebase.init";
+// import {
+//   getAuth,
+//   createUserWithEmailAndPassword,
+//   sendEmailVerification,
+//   updateProfile,
+// } from "firebase/auth";
+// import initializeAuthentication from "../../Firebase/Firebase.init";
 import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
-initializeAuthentication();
+// initializeAuthentication();
 
 const SignUp = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const {
+    handleEmailChange,
+    handlePasswordChange,
+    handlePasswordSignUp,
+    handleNameChange,
+    error,
+  } = useAuth();
 
-  const auth = getAuth();
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [error, setError] = useState("");
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  // const auth = getAuth();
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  // const handleEmailChange = (e) => {
+  //   setEmail(e.target.value);
+  // };
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
+  // const handlePasswordChange = (e) => {
+  //   setPassword(e.target.value);
+  // };
+
+  // const handleNameChange = (e) => {
+  //   setName(e.target.value);
+  // };
 
   const handleResgistration = (e) => {
     e.preventDefault();
-    if (password.length < 6) {
-      setError("Password must be at least 6 character long.");
-      return;
-    }
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        // Signed in
-        const user = result.user;
-        sendEmailVerification(auth.currentUser).then(() => {
-          // Email verification sent!
-        });
+    handlePasswordSignUp();
+    // if (password.length < 6) {
+    //   setError("Password must be at least 6 character long.");
+    //   return;
+    // }
+    // createUserWithEmailAndPassword(auth, email, password)
+    //   .then((result) => {
+    //     // Signed in
+    //     const user = result.user;
+    //     sendEmailVerification(auth.currentUser).then(() => {
+    //       // Email verification sent!
+    //     });
 
-        updateProfile(auth.currentUser, {
-          displayName: name,
-        }).then(() => {});
-        console.log(user);
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        setError(errorMessage);
-      });
+    //     updateProfile(auth.currentUser, {
+    //       displayName: name,
+    //     }).then(() => {});
+    //     console.log(user);
+    //   })
+    //   .catch((error) => {
+    //     const errorMessage = error.message;
+    //     setError(errorMessage);
+    //   });
   };
 
   return (
