@@ -1,0 +1,39 @@
+.small-card {
+  display: flex;
+  flex-grow: 1;
+  text-align: left;
+  border: 1px solid lightgrey;
+  margin: 5px;
+  background-color: rgb(245, 255, 245);
+}
+
+.small-card img {
+  height: 82px;
+  width: 100px;
+}
+
+.small-card button {
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: none;
+  color: rgb(255, 0, 0);
+}
+
+.info h3,
+p {
+  margin: 0;
+}
+
+.left-img {
+  height: 110px;
+}
+
+.selected-card {
+  background-color: rgb(228, 255, 228);
+}
+
+.bg-danger {
+  color: white;
+  border: none;
+  background-color: red;
+}

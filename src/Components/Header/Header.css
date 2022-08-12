@@ -1,0 +1,26 @@
+nav {
+  padding: 10px;
+  padding-left: 30px;
+  background-color: rgb(38, 138, 38);
+}
+
+nav input {
+  border-radius: 5px;
+  width: 40%;
+  border: none;
+  background-color: rgb(203, 231, 203);
+}
+
+nav h1 {
+  font-size: xx-large;
+  margin: 0;
+}
+
+nav img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.heart {
+  color: rgb(255, 51, 51);
+}
